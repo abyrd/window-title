@@ -15,12 +15,14 @@ ARBTT's sampling frequency is rather low, and it saves a lot more window informa
 
 This project adopts the event-driven approach. There are two common libraries for talking to the X server: Xlib and XCB. Both have Python wrappers. 
 
-`sudo apt-get install python-xcb`
-
-
-https://bbs.archlinux.org/viewtopic.php?id=117031
+This project uses the xcb one: `sudo apt-get install python-xcb`
 
 Andrew Gallant's excellent xpybutil provides a high-level API on top of python-xcb for examining EWMH hints and handling X messages. 
+
+In this post, Andrew Gallant provides most of the necessary detail:
+https://bbs.archlinux.org/viewtopic.php?pid=919624#p919624
+
+As long as the window manager supports EWMH hints, we can listen for PropertyNotify events on the root window indicating that the `_NET_ACTIVE_WINDOW` property has been modified. This does not detect window name changes (e.g. changing tabs in a web browser or editor) so we need to listen for additional events on the active window.
 
 Epydoc-generated docs are here:
 http://burntsushi.net/xpybutil/docs/
