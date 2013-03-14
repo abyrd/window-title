@@ -8,6 +8,9 @@ import xpybutil.util as util
 import xpybutil.window as window
 from xpybutil import conn, root
 
+import idle
+ii = idle.IdleInfo()
+
 def sigint_handler(signal, frame):
     print 'received SIGINT, terminating'
     sys.exit(0)
@@ -17,7 +20,7 @@ active_window = None
 
 def name_change_handler() :
     active_name = ewmh.get_wm_name(active_window).reply()
-    print active_window, active_name
+    print active_window, active_name, ii.idle_msec()
 
 def active_window_handler() :
     global active_window
