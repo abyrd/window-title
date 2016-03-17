@@ -11,7 +11,7 @@ Both sampling (polling) and event-driven approaches are possible.
 This project was inspired by Joachim Breitner's ARBTT, which uses the polling approach:
 https://www.joachim-breitner.de/blog/archives/336-The-Automatic-Rule-Based-Time-Tracker.html
 
-ARBTT's sampling frequency is rather low, and it saves a lot more window information than I need. My inital experiments with a simple polling script using external commands like xprop fell short. 
+ARBTT's sampling frequency is rather low (but can be configured to be higher), and it saves a lot more window information than I need. My inital experiments with a simple polling script using external commands like xprop fell short. 
 
 This project adopts the event-driven approach. There are two common libraries for talking to the X server: Xlib and XCB. Both have Python wrappers. 
 
